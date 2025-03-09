@@ -1,7 +1,7 @@
 # Techfest2025
 
 <p align="center">
-  <img src="https://github.com/sirik0ta/Techfest2025/blob/main/icon64.png" alt="AI Fact Checker Logo" width="200"/>
+  <img src="https://github.com/sirik0ta/Techfest2025/blob/main/icon16.png" alt="AI Fact Checker Logo" width="200"/>
 </p>
 
 The AI Fact Checker is a chrome extension that is designed to help users indentify potentially misleading information on web pages. It scans the the webpage content, highlights statements which may require fact-checking, and provides AI-generated insights into their credibility. The extension uses OpenAI's GPT 4 API along with Google Fact Check Tools API to analyze text and detect potential misinformation.
