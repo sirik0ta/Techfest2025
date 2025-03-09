@@ -1,0 +1,348 @@
+/* popup-styles.css - Styles for extension popup */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    width: 320px; /* Standard width for extension popups */
+    overflow-x: hidden;
+}
+
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    max-height: 600px; /* Prevent overly tall popups */
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: white;
+    border-bottom: 1px solid #e6e6e6;
+}
+  
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+  
+/* Toggle switch */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4285f4;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4285f4;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.small {
+    width: 30px;
+    height: 16px;
+}
+
+.slider.small:before {
+    height: 12px;
+    width: 12px;
+}
+
+input:checked + .slider.small:before {
+    transform: translateX(14px);
+}
+
+#statusText {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.scan-section {
+    text-align: center;
+    margin-bottom: 16px;
+}
+  
+.status-text {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+/* Buttons */
+.primary-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    width: 100%; /* Make buttons full-width for better UX in popup */
+    margin-bottom: 8px;
+}
+
+.primary-button:hover {
+    background-color: #3367d6;
+}
+
+.primary-button:disabled {
+    background-color: #a4c2f4;
+    cursor: not-allowed;
+}
+  
+.button-icon {
+    margin-right: 8px;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: #4285f4;
+    border: 1px solid #4285f4;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.secondary-button:hover {
+    background-color: rgba(66, 133, 244, 0.1);
+}
+
+/* Stats container */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+  
+.stat-box {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    width: 48%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Settings section */
+.settings-section {
+    background-color: white;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+  
+h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.select-input {
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 13px;
+    min-width: 100px;
+    color: #333;
+}
+  
+/* Footer */
+footer {
+    display: flex;
+    border-top: 1px solid #e6e6e6;
+    background-color: white;
+    padding: 8px 16px;
+    position: relative;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-button.active {
+    color: #4285f4;
+    font-weight: 500;
+}
+  
+.tab-button.active:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4285f4;
+}
+
+.version {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #999;
+}
+
+/* History section */
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background-color: white;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+  
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.history-date {
+    font-size: 13px;
+    color: #666;
+}
+
+.history-count {
+    font-size: 12px;
+    color: white;
+    background-color: #ff6b6b;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.history-url {
+    font-size: 13px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.history-empty {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fact Checker</title>
+  <link rel="stylesheet" href="popup-styles.css">
+  
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <div class="logo-container">
+        <img src="icons/logo.svg" alt="AI Fact Checker" class="logo">
+        <h1>AI Fact Checker</h1>
+      </div>
+      <div class="toggle-container">
+        <label class="toggle">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider round"></span>
+        </label>
+        <span id="statusText">Enabled</span>
+      </div>
+    </header>
+    
+    <div class="content">
+      <div id="mainContent">
+        <div class="scan-section">
+          <button id="scanButton" class="primary-button">
+            <span class="button-icon">🔍</span>
+            Scan This Page
+          </button>
+          <div id="scanStatus" class="status-text"></div>
+        </div>
+        
+        <div class="stats-container">
+          <div class="stat-box">
+            <span class="stat-label">Last Scan</span>
+            <span id="lastScanTime" class="stat-value">Never</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Claims Flagged</span>
+            <span id="flaggedCount" class="stat-value">0</span>
+          </div>
+        </div>
+        
+        <div class="settings-section">
+          <h2>Settings</h2>
+          
+          <div class="setting-item">
+            <label for="sensitivitySelect">Detection Sensitivity</label>
+            <select id="sensitivitySelect" class="select-input">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          
+          <div class="setting-item">
+            <label for="autoScanToggle">Auto-scan pages</label>
+            <label class="toggle small">
+              <input type="checkbox" id="autoScanToggle" checked>
+              <span class="slider round small"></span>
+            </label>
+          </div>
+          
+          <button id="clearHighlightsButton" class="secondary-button">
+            Clear Highlights
+          </button>
+        </div>
+      </div>
+      
+      <div id="historyContent" class="hidden">
+        <h2>Scan History</h2>
+        <div id="historyList" class="history-list">
+          <!-- History items will be added here -->
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <button id="showMainButton" class="tab-button active">Main</button>
+      <button id="showHistoryButton" class="tab-button">History</button>
+      <div class="version">v1.0</div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

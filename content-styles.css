@@ -1,0 +1,106 @@
+/* content-styles.css - Styles for content script injection */
+
+/* Highlight for potentially misleading content */
+.ai-fact-checker-highlight {
+    background-color: rgba(255, 220, 220, 0.3);
+    border-bottom: 2px dotted #ff6b6b;
+    position: relative;
+    cursor: help;
+    transition: background-color 0.2s ease;
+}
+  
+.ai-fact-checker-highlight:hover {
+    background-color: rgba(255, 220, 220, 0.5);
+}
+  
+/* Tooltip styles */
+.ai-fact-checker-tooltip {
+    position: absolute;
+    z-index: 10000;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 400px;
+    width: auto;
+    padding: 0;
+    color: #333;
+    border: 1px solid #e6e6e6;
+    animation: tooltip-fade-in 0.2s ease;
+}
+  
+@keyframes tooltip-fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+  
+.ai-fact-checker-tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f8f8;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+  
+.ai-fact-checker-tooltip-title {
+    font-weight: 600;
+    color: #333;
+}
+  
+.ai-fact-checker-tooltip-confidence {
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 3px 8px;
+}
+  
+.ai-fact-checker-tooltip-confidence.high-confidence {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.ai-fact-checker-tooltip-confidence.medium-confidence {
+    background-color: #ffa600;
+    color: white;
+}
+
+.ai-fact-checker-tooltip-confidence.low-confidence {
+    background-color: #6b6bff;
+    color: white;
+}
+
+.ai-fact-checker-tooltip-content {
+    padding: 12px 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+  
+.ai-fact-checker-tooltip-footer {
+    padding: 8px 15px;
+    background: #f8f8f8;
+    border-top: 1px solid #e6e6e6;
+    font-size: 11px;
+    color: #888;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.ai-fact-checker-source {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .ai-fact-checker-source a {
+    color: #4285f4;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .ai-fact-checker-source a:hover {
+    text-decoration: underline;
+  }

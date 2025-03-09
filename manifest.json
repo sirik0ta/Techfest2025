@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "AI Fact Checker",
+    "version": "3.0",
+    "description": "Uses AI to detect and highlight potentially false information on websites",
+    "permissions": [
+      "storage"
+    ],
+    "host_permissions": [
+      "https://factchecktools.googleapis.com/",
+      "https://api.openai.com/"
+    ],
+    "options_page": "options.html",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"],
+        "css": ["content-styles.css"]
+      }
+    ]
+  }
